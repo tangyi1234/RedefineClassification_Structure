@@ -7,7 +7,7 @@
 //
 
 #import "TYButtonViewController.h"
-
+#import "UIButton+TYButton.h"
 @interface TYButtonViewController ()
 
 @end
@@ -17,8 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initButView];
 }
 
+- (void)initButView {
+    UIButton* but = [UIButton buttonWithType:UIButtonTypeCustom];
+    but.frame = CGRectMake(10, 70, 200, 40);
+    but.backgroundColor = [UIColor redColor];
+    [but setTitle:@"点击" forState:UIControlStateNormal];
+    [self.view addSubview:but];
+    [but buttonClickCallback:^{
+        NSLog(@"点击");
+    } style:UIControlEventTouchUpInside];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

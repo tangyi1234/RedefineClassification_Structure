@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (TYButton)
-
+- (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents;
 @end
