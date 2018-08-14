@@ -10,4 +10,5 @@
 
 @interface UIButton (TYButton)
 - (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents;
+- (void (^) (BOOL state))conditions;
 @end

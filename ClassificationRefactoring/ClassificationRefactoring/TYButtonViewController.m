@@ -8,6 +8,9 @@
 
 #import "TYButtonViewController.h"
 #import "UIButton+TYButton.h"
+#import "UIControl+TYIControl.h"
+#import "UITextField+TYTextField.h"
+#import "TYImplementCallback.h"
 @interface TYButtonViewController ()
 
 @end
@@ -26,9 +29,23 @@
     but.backgroundColor = [UIColor redColor];
     [but setTitle:@"点击" forState:UIControlStateNormal];
     [self.view addSubview:but];
+    
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 140, 300, 50)];
+    textField.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:textField];
+    
     [but buttonClickCallback:^{
         NSLog(@"点击");
     } style:UIControlEventTouchUpInside];
+    
+    [but clickOperation:^{
+        NSLog(@"是否点击了");
+    } style:UIControlEventTouchUpInside];
+    
+    [textField outputData:^(id data) {
+        UITextField *textField = data;
+        NSLog(@"输出:%@",textField.text);
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
