@@ -10,4 +10,6 @@
 
 @interface UITextField (TYTextField)
 - (void)outputData:(void (^) (id data))dataBlock;
+- (BOOL)addTrigger:(BOOL (^) (id data))outputBlock;
+//- (UITextField *(^) (BOOL state))conditions;
 @end

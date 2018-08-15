@@ -12,4 +12,14 @@
 - (void)outputData:(void (^) (id data))dataBlock{
     [self outputTextField:dataBlock style:UIControlEventAllEditingEvents];
 }
+
+- (BOOL)addTrigger:(BOOL (^) (id data))outputBlock {
+    return [self shuLuQualified:outputBlock style:UIControlEventAllEditingEvents];
+}
+
+//- (UITextField *(^) (BOOL state))conditions {
+//    return ^UITextField *(BOOL state){
+//
+//    }
+//}
 @end

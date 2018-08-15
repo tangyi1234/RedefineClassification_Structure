@@ -12,4 +12,6 @@
 - (void)clickOperation:(void (^) (void))perform style:(UIControlEvents)style;
 
 - (void)outputTextField:(void (^) (id data))dataBlock style:(UIControlEvents)style;
+
+- (BOOL)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style;
 @end

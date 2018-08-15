@@ -46,6 +46,11 @@
         UITextField *textField = data;
         NSLog(@"输出:%@",textField.text);
     }];
+    
+    [textField addTrigger:^BOOL(id data) {
+        UITextField *text = data;
+        return text.text.length > 5;
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
