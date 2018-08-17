@@ -31,6 +31,8 @@ static void *mutableArrayKey = &mutableArrayKey;
 }
 
 - (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents{
+    self.userInteractionEnabled = NO;
+    self.selected = NO;
     [self clickOperation:seleButBlock style:controlEvents];
     NSLog(@"数组还有多少:%lu",(unsigned long)self.mutableArray.count);
     if (seleButBlock == nil || controlEvents == nil) {
@@ -50,8 +52,12 @@ static void *mutableArrayKey = &mutableArrayKey;
             [dic setValue:valueStr forKey:@"conditionsKey"];
             [self.mutableArray replaceObjectAtIndex:i withObject:dic];
             if ([TYDeal processingInputBox:self.mutableArray]) {
-                [self controlWithClickStateAllow:YES];
+                self.userInteractionEnabled = YES;//这个是用来是否禁止交互
+                self.selected = YES;
+                [self controlWithClickStateAllow:YES];//这个可以去掉了
             }else {
+                self.userInteractionEnabled = NO;//这个是用来是否禁止交互
+                self.selected = NO;
                 [self controlWithClickStateAllow:NO];
             }
         }];
