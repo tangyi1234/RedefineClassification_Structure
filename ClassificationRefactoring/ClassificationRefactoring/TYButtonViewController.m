@@ -24,14 +24,24 @@
 }
 
 - (void)initButView {
+    /*
+     enum {
+     UIControlStateNormal = 0, 常规状态显现
+     UIControlStateHighlighted = 1 << 0, 高亮状态显现
+     UIControlStateDisabled = 1 << 1, 禁用的状态才会显现
+     UIControlStateSelected = 1 << 2, 选中状态
+     UIControlStateApplication = 0x00FF0000, 当应用程序标志时
+     
+     UIControlStateReserved = 0xFF000000 为内部框架预留，可以不管他
+     };
+     */
     UIButton* but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame = CGRectMake(10, 70, 200, 40);
 //    but.backgroundColor = [UIColor redColor];
     [but setTitle:@"点击" forState:UIControlStateNormal];
-    [but setImage:[UIImage imageNamed:@"btn_bag_gray"] forState:UIControlStateSelected];
-    [but setImage:[UIImage imageNamed:@"btn_bag_red"] forState:UIControlStateNormal];
+    [but setImage:[UIImage imageNamed:@"btn_bag_gray"] forState:UIControlStateNormal];
+    [but setImage:[UIImage imageNamed:@"btn_bag_red"] forState:UIControlStateSelected];
     [self.view addSubview:but];
-    but.enabled = NO;
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 140, 300, 40)];
     textField.backgroundColor = [UIColor yellowColor];
