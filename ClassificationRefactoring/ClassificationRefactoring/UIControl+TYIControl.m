@@ -36,6 +36,10 @@ static void *lnternalKey = &lnternalKey;
     objc_setAssociatedObject(self, &backKey, back, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (void)removeBack{
+    objc_removeAssociatedObjects(self);
+}
+
 - (TYLnternalLmplementation *)lnternal {
     return objc_getAssociatedObject(self, &lnternalKey);
 }
@@ -45,7 +49,11 @@ static void *lnternalKey = &lnternalKey;
 }
 
 - (void)clickOperation:(void (^) (void))perform style:(UIControlEvents)style {
+    if (self.back) {
+        [self removeBack];
+    }
     self.back = [TYImplementCallback createImpLementCallback:perform];
+
     [self addTarget:self.back action:@selector(callback) forControlEvents:style];
 }
 
@@ -54,12 +62,26 @@ static void *lnternalKey = &lnternalKey;
     [self addTarget:self.back action:@selector(performOutput:) forControlEvents:style];
 }
 
-- (BOOL)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style {
+- (void)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style {
+    if (self.lnternal) {
+        [self removeBack];
+    }
     self.lnternal = [TYLnternalLmplementation addLnternalLmplementation:dataBlock];
-    self.lnternal.stateNameBlock = ^(BOOL state){
-//        return state;
-    };
     [self addTarget:self.lnternal action:@selector(perform:) forControlEvents:style];
 }
 
+- (void)textFieldState:(void (^) (BOOL state))perform{
+    if (self.lnternal != nil) {
+        self.lnternal.stateNameBlock = ^(BOOL state) {
+            perform(state);
+        };
+    }
+}
+
+- (void)controlWithClickStateAllow:(BOOL)state {
+//    if (self.back && state != nil) {
+//        [self.back clickStateAllow:state];
+//    }
+    [self.back clickStateAllow:state];
+}
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (TYButton)
+//储存器
+- (UIButton *)storage;
 - (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents;
-- (void (^) (BOOL state))conditions;
+- (UIButton* (^)(id listener,NSString *attribute))conditions;
 @end

@@ -15,10 +15,12 @@
 		89C905862120450F00272198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C905852120450F00272198 /* main.m */; };
 		89C9058E212047C200272198 /* TYButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C9058D212047C200272198 /* TYButtonViewController.m */; };
 		89C90591212048F600272198 /* UIButton+TYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C90590212048F600272198 /* UIButton+TYButton.m */; };
+		A29DD5062125663000A4FC7B /* NSObject+SimpleKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = A29DD5052125663000A4FC7B /* NSObject+SimpleKVO.m */; };
 		A29EB1CC21242474008CDF28 /* TYLnternalLmplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = A29EB1CB21242474008CDF28 /* TYLnternalLmplementation.m */; };
 		A2A5E6082122AA95004A0253 /* UIControl+TYIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A5E6072122AA95004A0253 /* UIControl+TYIControl.m */; };
 		A2A5E60B2122AE60004A0253 /* TYImplementCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A5E60A2122AE60004A0253 /* TYImplementCallback.m */; };
 		A2A5E60E2122DDBA004A0253 /* UITextField+TYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A5E60D2122DDBA004A0253 /* UITextField+TYTextField.m */; };
+		A2BF28B22126A21200C9819D /* TYDeal.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BF28B12126A21200C9819D /* TYDeal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		89C9058D212047C200272198 /* TYButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYButtonViewController.m; sourceTree = "<group>"; };
 		89C9058F212048F600272198 /* UIButton+TYButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+TYButton.h"; sourceTree = "<group>"; };
 		89C90590212048F600272198 /* UIButton+TYButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TYButton.m"; sourceTree = "<group>"; };
+		A29DD502212565E900A4FC7B /* PublicDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicDefines.h; sourceTree = "<group>"; };
+		A29DD5042125663000A4FC7B /* NSObject+SimpleKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SimpleKVO.h"; sourceTree = "<group>"; };
+		A29DD5052125663000A4FC7B /* NSObject+SimpleKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SimpleKVO.m"; sourceTree = "<group>"; };
 		A29EB1CA21242474008CDF28 /* TYLnternalLmplementation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYLnternalLmplementation.h; sourceTree = "<group>"; };
 		A29EB1CB21242474008CDF28 /* TYLnternalLmplementation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYLnternalLmplementation.m; sourceTree = "<group>"; };
 		A2A5E6062122AA95004A0253 /* UIControl+TYIControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+TYIControl.h"; sourceTree = "<group>"; };
@@ -44,6 +49,8 @@
 		A2A5E60A2122AE60004A0253 /* TYImplementCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYImplementCallback.m; sourceTree = "<group>"; };
 		A2A5E60C2122DDBA004A0253 /* UITextField+TYTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+TYTextField.h"; sourceTree = "<group>"; };
 		A2A5E60D2122DDBA004A0253 /* UITextField+TYTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+TYTextField.m"; sourceTree = "<group>"; };
+		A2BF28B02126A21200C9819D /* TYDeal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYDeal.h; sourceTree = "<group>"; };
+		A2BF28B12126A21200C9819D /* TYDeal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYDeal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +99,10 @@
 				A2A5E60A2122AE60004A0253 /* TYImplementCallback.m */,
 				A29EB1CA21242474008CDF28 /* TYLnternalLmplementation.h */,
 				A29EB1CB21242474008CDF28 /* TYLnternalLmplementation.m */,
+				A2BF28B02126A21200C9819D /* TYDeal.h */,
+				A2BF28B12126A21200C9819D /* TYDeal.m */,
+				A29DD502212565E900A4FC7B /* PublicDefines.h */,
+				A29DD5032125663000A4FC7B /* SimpleKVO */,
 				89C9057F2120450F00272198 /* Assets.xcassets */,
 				89C905812120450F00272198 /* LaunchScreen.storyboard */,
 				89C905842120450F00272198 /* Info.plist */,
@@ -99,6 +110,15 @@
 				89C9057C2120450F00272198 /* ClassificationRefactoring.xcdatamodeld */,
 			);
 			path = ClassificationRefactoring;
+			sourceTree = "<group>";
+		};
+		A29DD5032125663000A4FC7B /* SimpleKVO */ = {
+			isa = PBXGroup;
+			children = (
+				A29DD5042125663000A4FC7B /* NSObject+SimpleKVO.h */,
+				A29DD5052125663000A4FC7B /* NSObject+SimpleKVO.m */,
+			);
+			path = SimpleKVO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,7 +195,9 @@
 				89C905752120450F00272198 /* AppDelegate.m in Sources */,
 				A2A5E6082122AA95004A0253 /* UIControl+TYIControl.m in Sources */,
 				89C9058E212047C200272198 /* TYButtonViewController.m in Sources */,
+				A29DD5062125663000A4FC7B /* NSObject+SimpleKVO.m in Sources */,
 				89C905862120450F00272198 /* main.m in Sources */,
+				A2BF28B22126A21200C9819D /* TYDeal.m in Sources */,
 				A2A5E60E2122DDBA004A0253 /* UITextField+TYTextField.m in Sources */,
 				A2A5E60B2122AE60004A0253 /* TYImplementCallback.m in Sources */,
 				A29EB1CC21242474008CDF28 /* TYLnternalLmplementation.m in Sources */,

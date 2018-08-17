@@ -12,11 +12,13 @@ typedef void (^textFieldBlock) (id data);
 @interface TYImplementCallback()
 @property (nonatomic, copy) ImplementCallbackBlock ImplementCallbackNameBlock;
 @property (nonatomic, copy) textFieldBlock textFieldNameBlock;
+@property (nonatomic, assign) BOOL clickState;
 @end
 @implementation TYImplementCallback
 + (instancetype)createImpLementCallback:(void (^) (void))perform{
     TYImplementCallback *callback = [[TYImplementCallback alloc] init];
     callback->_ImplementCallbackNameBlock = perform;
+    callback->_clickState = YES;
     return callback;
 }
 
@@ -27,8 +29,10 @@ typedef void (^textFieldBlock) (id data);
 }
 
 - (void)callback{
-    if (_ImplementCallbackNameBlock) {
-        _ImplementCallbackNameBlock();
+    if (_clickState) {
+        if (_ImplementCallbackNameBlock) {
+            _ImplementCallbackNameBlock();
+        }
     }
 }
 
@@ -36,5 +40,10 @@ typedef void (^textFieldBlock) (id data);
     if (_textFieldNameBlock) {
         _textFieldNameBlock(data);
     }
+}
+
+- (void)clickStateAllow:(BOOL)state{
+    _clickState = state;
+    NSLog(@"是否可点击:%d",_clickState);
 }
 @end

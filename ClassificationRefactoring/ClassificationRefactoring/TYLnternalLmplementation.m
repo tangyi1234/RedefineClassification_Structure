@@ -24,10 +24,8 @@ typedef BOOL (^performBlock) (id data);
     BOOL state;
     if (_performNameBlock) {
        state = _performNameBlock(data);
-        if (state) {
-            if (_stateNameBlock) {
-                _stateNameBlock(state);
-            }
+        if (_stateNameBlock) {
+            _stateNameBlock(state);
         }
     }
 }
