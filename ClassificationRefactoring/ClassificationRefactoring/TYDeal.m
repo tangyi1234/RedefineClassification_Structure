@@ -15,9 +15,9 @@
         for (int i = 0; i < mutableArray.count; i++) {
             NSMutableDictionary *dic = mutableArray[i];
             NSString *str = dic[@"conditionsKey"];
-            NSLog(@"状态字符串:%@",str);
+//            NSLog(@"状态字符串:%@",str);
             BOOL state = [str boolValue];
-            NSLog(@"状态数值:%d",state);
+//            NSLog(@"状态数值:%d",state);
             if (state) {
                 a = a + 1;
             }

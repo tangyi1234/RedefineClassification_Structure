@@ -12,6 +12,10 @@
 @property (nonatomic, strong) NSString *textFieldState;
 - (void)outputData:(void (^) (id data))dataBlock;
 - (UITextField *)addTrigger:(BOOL (^) (id data))outputBlock;
-- (void)executionStatus;
+- (UITextField *)executionStatus;
+
+- (UITextField *)scope:(NSInteger)numerical;
+
+
 //- (UITextField *(^) (BOOL state))conditions;
 @end

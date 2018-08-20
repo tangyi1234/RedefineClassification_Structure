@@ -12,7 +12,7 @@
 #import "UITextField+TYTextField.h"
 #import "TYImplementCallback.h"
 @interface TYButtonViewController ()
-
+@property (nonatomic, weak) UIButton* but;
 @end
 
 @implementation TYButtonViewController
@@ -31,7 +31,6 @@
      UIControlStateDisabled = 1 << 1, 禁用的状态才会显现
      UIControlStateSelected = 1 << 2, 选中状态
      UIControlStateApplication = 0x00FF0000, 当应用程序标志时
-     
      UIControlStateReserved = 0xFF000000 为内部框架预留，可以不管他
      };
      */
@@ -41,7 +40,7 @@
     [but setTitle:@"点击" forState:UIControlStateNormal];
     [but setImage:[UIImage imageNamed:@"btn_bag_gray"] forState:UIControlStateNormal];
     [but setImage:[UIImage imageNamed:@"btn_bag_red"] forState:UIControlStateSelected];
-    [self.view addSubview:but];
+    [self.view addSubview:_but = but];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 140, 300, 40)];
     textField.backgroundColor = [UIColor yellowColor];
@@ -62,11 +61,11 @@
 //        NSLog(@"输出:%@",textField.text);
 //    }];
 //    
-    [[textField addTrigger:^BOOL(id data) {
+    [[[textField addTrigger:^BOOL(id data) {
         UITextField *text = data;
         NSLog(@"输出文案:%@",text.text);
         return text.text.length > 5;
-    }] executionStatus];
+    }] executionStatus] scope:10];
     
     [[textField1 addTrigger:^BOOL(id data) {
         UITextField *text = data;
@@ -107,6 +106,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)dealloc {
+    [_but emptyKvo];
 }
 
 /*

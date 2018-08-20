@@ -11,7 +11,7 @@ typedef BOOL (^performBlock) (id data);
 
 @interface TYLnternalLmplementation()
 @property (nonatomic, copy) performBlock performNameBlock;
-
+@property (nonatomic, assign) NSInteger numerical;
 @end
 @implementation TYLnternalLmplementation
 + (instancetype)addLnternalLmplementation:(BOOL (^) (id data))dataBlock {
@@ -21,13 +21,26 @@ typedef BOOL (^performBlock) (id data);
 }
 
 - (void)perform:(id)data {
+    UITextField *textField = data;
+    NSString *textFieldStr = textField.text;
+    textFieldStr = [[textFieldStr componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]componentsJoinedByString:@""];
+    if (_numerical != nil){
+        if (textFieldStr.length > _numerical + 1) {
+            textFieldStr = [textFieldStr substringToIndex:_numerical];
+            textField.text = textFieldStr;
+        }
+    }
+    
     BOOL state;
     if (_performNameBlock) {
-       state = _performNameBlock(data);
+       state = _performNameBlock(textField);
         if (_stateNameBlock) {
             _stateNameBlock(state);
         }
     }
 }
 
+- (void)assignmentScope:(NSInteger)numerical {
+    _numerical = numerical;
+}
 @end

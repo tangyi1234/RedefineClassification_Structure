@@ -13,8 +13,4 @@
 + (instancetype)outputData:(void (^) (id data))perform;
 - (void)callback;
 - (void)performOutput:(id)data;
-/**
- 是否允许执行操作
- */
-- (void)clickStateAllow:(BOOL)state;
 @end

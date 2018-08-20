@@ -13,4 +13,6 @@
 - (UIButton *)storage;
 - (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents;
 - (UIButton* (^)(id listener,NSString *attribute))conditions;
+//清空kvo
+- (void)emptyKvo;
 @end

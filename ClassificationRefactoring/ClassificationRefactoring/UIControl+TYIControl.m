@@ -53,7 +53,6 @@ static void *lnternalKey = &lnternalKey;
         [self removeBack];
     }
     self.back = [TYImplementCallback createImpLementCallback:perform];
-
     [self addTarget:self.back action:@selector(callback) forControlEvents:style];
 }
 
@@ -78,10 +77,8 @@ static void *lnternalKey = &lnternalKey;
     }
 }
 
-- (void)controlWithClickStateAllow:(BOOL)state {
-//    if (self.back && state != nil) {
-//        [self.back clickStateAllow:state];
-//    }
-    [self.back clickStateAllow:state];
+
+- (void)passScope:(NSInteger)numerical {
+    [self.lnternal assignmentScope:numerical];
 }
 @end

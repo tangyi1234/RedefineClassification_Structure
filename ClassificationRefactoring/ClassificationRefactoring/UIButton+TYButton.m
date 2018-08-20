@@ -34,7 +34,7 @@ static void *mutableArrayKey = &mutableArrayKey;
     self.userInteractionEnabled = NO;
     self.selected = NO;
     [self clickOperation:seleButBlock style:controlEvents];
-    NSLog(@"数组还有多少:%lu",(unsigned long)self.mutableArray.count);
+//    NSLog(@"数组还有多少:%lu",(unsigned long)self.mutableArray.count);
     if (seleButBlock == nil || controlEvents == nil) {
         return;
     }
@@ -47,18 +47,18 @@ static void *mutableArrayKey = &mutableArrayKey;
         //主要是用来监听输入框输入的数据是否满足设置的条件
         [objc addKVOForPath:attributeStr withBlock:^(id newValue) {
             NSString *valueStr = newValue;
-            NSLog(@"这是什么值:%@",valueStr);
+//            NSLog(@"这是什么值:%@",valueStr);
             //储存每个
             [dic setValue:valueStr forKey:@"conditionsKey"];
             [self.mutableArray replaceObjectAtIndex:i withObject:dic];
             if ([TYDeal processingInputBox:self.mutableArray]) {
                 self.userInteractionEnabled = YES;//这个是用来是否禁止交互
                 self.selected = YES;
-                [self controlWithClickStateAllow:YES];//这个可以去掉了
+//                [self controlWithClickStateAllow:YES];//这个可以去掉了
             }else {
                 self.userInteractionEnabled = NO;//这个是用来是否禁止交互
                 self.selected = NO;
-                [self controlWithClickStateAllow:NO];
+//                [self controlWithClickStateAllow:NO];
             }
         }];
     }
@@ -73,5 +73,15 @@ static void *mutableArrayKey = &mutableArrayKey;
         }
         return self;
     };
+}
+
+- (void)emptyKvo {
+    if (self.mutableArray.count > 0) {
+        for (int i = 0 ; i < self.mutableArray.count; i++) {
+            NSMutableDictionary *mutableDic = self.mutableArray[i];
+            id objc = mutableDic[@"objc"];
+            [objc removeAllKVOs];
+        }
+    }
 }
 @end

@@ -17,5 +17,5 @@
 //返回结果textField
 - (void)textFieldState:(void (^) (BOOL state))perform;
 
-- (void)controlWithClickStateAllow:(BOOL)state;
+- (void)passScope:(NSInteger)numerical;
 @end
