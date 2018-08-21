@@ -8,10 +8,8 @@
 
 #import "TYImplementCallback.h"
 typedef void (^ImplementCallbackBlock) (void);
-typedef void (^textFieldBlock) (id data);
 @interface TYImplementCallback()
 @property (nonatomic, copy) ImplementCallbackBlock ImplementCallbackNameBlock;
-@property (nonatomic, copy) textFieldBlock textFieldNameBlock;
 @end
 @implementation TYImplementCallback
 + (instancetype)createImpLementCallback:(void (^) (void))perform{
@@ -20,11 +18,6 @@ typedef void (^textFieldBlock) (id data);
     return callback;
 }
 
-+ (instancetype)outputData:(void (^) (id data))perform{
-    TYImplementCallback *callback = [[TYImplementCallback alloc] init];
-    callback->_textFieldNameBlock = perform;
-    return callback;
-}
 
 - (void)callback{
     if (_ImplementCallbackNameBlock) {
@@ -32,10 +25,5 @@ typedef void (^textFieldBlock) (id data);
     }
 }
 
-- (void)performOutput:(id)data {
-    if (_textFieldNameBlock) {
-        _textFieldNameBlock(data);
-    }
-}
 
 @end

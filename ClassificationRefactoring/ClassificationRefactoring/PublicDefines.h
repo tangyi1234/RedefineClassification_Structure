@@ -26,5 +26,6 @@
 #endif
 #endif
 
-
+#define TEXTFEILD_STATE_KEY @"conditionsKey"
+#define TEXTFIELDSTATE @"textFieldState"
 #endif /* PublicDefines_h */

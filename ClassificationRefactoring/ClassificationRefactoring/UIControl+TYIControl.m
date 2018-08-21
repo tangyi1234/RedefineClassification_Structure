@@ -56,10 +56,6 @@ static void *lnternalKey = &lnternalKey;
     [self addTarget:self.back action:@selector(callback) forControlEvents:style];
 }
 
-- (void)outputTextField:(void (^) (id data))dataBlock style:(UIControlEvents)style {
-    self.back = [TYImplementCallback outputData:dataBlock];
-    [self addTarget:self.back action:@selector(performOutput:) forControlEvents:style];
-}
 
 - (void)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style {
     if (self.lnternal) {

@@ -9,13 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UITextField (TYTextField)
-@property (nonatomic, strong) NSString *textFieldState;
-- (void)outputData:(void (^) (id data))dataBlock;
+@property (nonatomic, copy) NSString *textFieldState;
 - (UITextField *)addTrigger:(BOOL (^) (id data))outputBlock;
 - (UITextField *)executionStatus;
 
 - (UITextField *)scope:(NSInteger)numerical;
-
-
-//- (UITextField *(^) (BOOL state))conditions;
 @end

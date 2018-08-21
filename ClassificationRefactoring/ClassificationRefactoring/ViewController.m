@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TYButtonViewController.h"
+#import "TYModel.h"
 @interface ViewController ()
 
 @end
@@ -27,6 +28,7 @@
     [but setTitle:@"跳转1" forState:UIControlStateNormal];
     [but addTarget:self action:@selector(selectorBut) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:but];
+    
 }
 
 - (void)selectorBut{

@@ -36,8 +36,6 @@
      */
     UIButton* but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame = CGRectMake(10, 70, 200, 40);
-//    but.backgroundColor = [UIColor redColor];
-    [but setTitle:@"点击" forState:UIControlStateNormal];
     [but setImage:[UIImage imageNamed:@"btn_bag_gray"] forState:UIControlStateNormal];
     [but setImage:[UIImage imageNamed:@"btn_bag_red"] forState:UIControlStateSelected];
     [self.view addSubview:_but = but];
@@ -50,17 +48,6 @@
     textField1.backgroundColor = [UIColor greenColor];
     [self.view addSubview:textField1];
     
-    
-    
-//    [but clickOperation:^{
-//        NSLog(@"是否点击了");
-//    } style:UIControlEventTouchUpInside];
-    
-//    [textField outputData:^(id data) {
-//        UITextField *textField = data;
-//        NSLog(@"输出:%@",textField.text);
-//    }];
-//    
     [[[textField addTrigger:^BOOL(id data) {
         UITextField *text = data;
         NSLog(@"输出文案:%@",text.text);
@@ -73,34 +60,12 @@
         return text.text.length > 8;
     }] executionStatus];
     
-    [[but storage].conditions(textField,@"textFieldState").conditions(textField1,@"textFieldState")
+    [[but storage].conditions(textField).conditions(textField1)
      buttonClickCallback:^{
          NSLog(@"点击");
      } style:UIControlEventTouchUpInside];
     
-//    [but.conditions(textField,@"textFieldState").conditions(textField1,@"textFieldState")
-//     buttonClickCallback:^{
-//         NSLog(@"点击");
-//     } style:UIControlEventTouchUpInside];
-    
-//    [but buttonClickCallback:^{
-//        NSLog(@"textField属性是什么:%@",textField.textFieldState);
-//        NSLog(@"点击");
-//    } style:UIControlEventTouchUpInside];
-//
-//    [textField addObserver:self
-//                forKeyPath:@"textFieldState"
-//                   options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
-//                   context:nil];
-    
 }
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-//    if ([keyPath isEqualToString:@"textFieldState"]) {
-//        NSLog(@"%@",[object valueForKey:@"textFieldState"]);
-//        NSLog(@"ChangeInfo:%@",change);
-//    }
-//}
 
 
 - (void)didReceiveMemoryWarning {

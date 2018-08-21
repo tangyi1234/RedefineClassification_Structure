@@ -16,10 +16,7 @@ static void *textFieldStateKey = &textFieldStateKey;
 }
 
 - (void)setTextFieldState:(NSString *)textFieldState {
-    objc_setAssociatedObject(self, &textFieldStateKey, textFieldState, OBJC_ASSOCIATION_RETAIN);
-}
-- (void)outputData:(void (^) (id data))dataBlock{
-    [self outputTextField:dataBlock style:UIControlEventAllEditingEvents];
+    objc_setAssociatedObject(self, &textFieldStateKey, textFieldState, OBJC_ASSOCIATION_COPY);
 }
 
 - (UITextField *)addTrigger:(BOOL (^) (id data))outputBlock {
@@ -28,7 +25,9 @@ static void *textFieldStateKey = &textFieldStateKey;
 }
 
 - (UITextField *)executionStatus {
+    @weakify_self;
     [self textFieldState:^(BOOL state) {
+        @strongify_self;
         self.textFieldState = [NSString stringWithFormat:@"%hhd",state];
 //        NSLog(@"executionStatus这里收到的文案:%@",self.textFieldState);
     }];
@@ -42,10 +41,4 @@ static void *textFieldStateKey = &textFieldStateKey;
     [self passScope:numerical];
     return self;
 }
-
-//- (UITextField *(^) (BOOL state))conditions {
-//    return ^UITextField *(BOOL state){
-//
-//    }
-//}
 @end

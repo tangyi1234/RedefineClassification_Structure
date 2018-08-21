@@ -12,7 +12,7 @@
 //储存器
 - (UIButton *)storage;
 - (void)buttonClickCallback:(void (^)(void))seleButBlock style:(UIControlEvents)controlEvents;
-- (UIButton* (^)(id listener,NSString *attribute))conditions;
+- (UIButton* (^)(id listener))conditions;
 //清空kvo
 - (void)emptyKvo;
 @end

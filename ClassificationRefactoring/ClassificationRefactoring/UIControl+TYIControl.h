@@ -11,8 +11,6 @@
 @interface UIControl (TYIControl)
 - (void)clickOperation:(void (^) (void))perform style:(UIControlEvents)style;
 
-- (void)outputTextField:(void (^) (id data))dataBlock style:(UIControlEvents)style;
-
 - (void)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style;
 //返回结果textField
 - (void)textFieldState:(void (^) (BOOL state))perform;

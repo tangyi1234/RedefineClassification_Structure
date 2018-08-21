@@ -13,6 +13,8 @@
 #import "TYDeal.h"
 #import <objc/runtime.h>
 
+#define OBJC @"objc"
+#define ATTRIBUTE @"attribute"
 @interface UIButton()
 @property (nonatomic, strong) NSMutableArray *mutableArray;
 @end
@@ -40,34 +42,35 @@ static void *mutableArrayKey = &mutableArrayKey;
     }
     for (int i = 0 ; i < self.mutableArray.count; i++) {
         NSMutableDictionary *mutableDic = self.mutableArray[i];
-        id objc = mutableDic[@"objc"];
-        NSString *attributeStr = mutableDic[@"attribute"];
+        id objc = mutableDic[OBJC];
+        NSString *attributeStr = mutableDic[ATTRIBUTE];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:mutableDic];
 //        NSLog(@"获取的两个对象是什么:%@ 属性:%@",objc,attributeStr);
         //主要是用来监听输入框输入的数据是否满足设置的条件
+        @weakify_self;
         [objc addKVOForPath:attributeStr withBlock:^(id newValue) {
+            @strongify_self;
             NSString *valueStr = newValue;
 //            NSLog(@"这是什么值:%@",valueStr);
-            //储存每个
-            [dic setValue:valueStr forKey:@"conditionsKey"];
+            //储存每个状态
+            [dic setValue:valueStr forKey:TEXTFEILD_STATE_KEY];
             [self.mutableArray replaceObjectAtIndex:i withObject:dic];
             if ([TYDeal processingInputBox:self.mutableArray]) {
                 self.userInteractionEnabled = YES;//这个是用来是否禁止交互
                 self.selected = YES;
-//                [self controlWithClickStateAllow:YES];//这个可以去掉了
             }else {
                 self.userInteractionEnabled = NO;//这个是用来是否禁止交互
                 self.selected = NO;
-//                [self controlWithClickStateAllow:NO];
             }
         }];
     }
     
 }
 
-- (UIButton* (^)(id listener,NSString *attribute))conditions{
-    return ^UIButton*(id listener,NSString *attribute){
-        NSDictionary *dic = @{@"objc":listener,@"attribute":attribute};
+- (UIButton* (^)(id listener))conditions{
+    return ^UIButton*(id listener){
+        NSString *attribute = TEXTFIELDSTATE;
+        NSDictionary *dic = @{OBJC:listener,ATTRIBUTE:attribute};
         if (dic != nil) {
             [self.mutableArray addObject:dic];
         }
@@ -79,8 +82,8 @@ static void *mutableArrayKey = &mutableArrayKey;
     if (self.mutableArray.count > 0) {
         for (int i = 0 ; i < self.mutableArray.count; i++) {
             NSMutableDictionary *mutableDic = self.mutableArray[i];
-            id objc = mutableDic[@"objc"];
-            [objc removeAllKVOs];
+            id objcs = mutableDic[OBJC];
+            [objcs removeAllKVOs];
         }
     }
 }
