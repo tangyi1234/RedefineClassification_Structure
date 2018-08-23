@@ -7,40 +7,24 @@
 //
 
 #import "TYLnternalLmplementation.h"
-typedef BOOL (^performBlock) (id data);
+typedef void (^sendDataBlock) (id data);
 
 @interface TYLnternalLmplementation()
-@property (nonatomic, copy) performBlock performNameBlock;
+@property (nonatomic, copy) sendDataBlock sendDataNameBlock;
 @property (nonatomic, assign) NSInteger numerical;
 @end
 @implementation TYLnternalLmplementation
-+ (instancetype)addLnternalLmplementation:(BOOL (^) (id data))dataBlock {
+
++ (instancetype)addDelivery:(void (^) (id data))data {
     TYLnternalLmplementation *lnternal = [[TYLnternalLmplementation alloc] init];
-    lnternal->_performNameBlock = dataBlock;
+    lnternal->_sendDataNameBlock = data;
     return lnternal;
 }
 
-- (void)perform:(id)data {
-    UITextField *textField = data;
-    NSString *textFieldStr = textField.text;
-    textFieldStr = [[textFieldStr componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]componentsJoinedByString:@""];
-    if (_numerical != nil){
-        if (textFieldStr.length > _numerical + 1) {
-            textFieldStr = [textFieldStr substringToIndex:_numerical];
-            textField.text = textFieldStr;
-        }
-    }
-    
-    BOOL state;
-    if (_performNameBlock) {
-       state = _performNameBlock(textField);
-        if (_stateNameBlock) {
-            _stateNameBlock(state);
-        }
-    }
-}
 
-- (void)assignmentScope:(NSInteger)numerical {
-    _numerical = numerical;
+- (void)delivery:(id)data{
+    if (_sendDataNameBlock) {
+        _sendDataNameBlock(data);
+    }
 }
 @end

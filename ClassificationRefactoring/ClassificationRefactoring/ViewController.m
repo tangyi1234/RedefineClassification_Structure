@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "TYButtonViewController.h"
-#import "TYModel.h"
+
 @interface ViewController ()
 
 @end

@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-typedef void (^stateBlock) (BOOL state);
 @interface TYLnternalLmplementation : NSObject
-@property (nonatomic, copy) stateBlock stateNameBlock;
-+ (instancetype)addLnternalLmplementation:(BOOL (^) (id data))dataBlock;
-- (void)perform:(id)data;
-- (void)assignmentScope:(NSInteger)numerical;
++ (instancetype)addDelivery:(void (^) (id data))data;
+- (void)delivery:(id)data;
 @end

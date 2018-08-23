@@ -11,4 +11,5 @@
 @interface TYImplementCallback : NSObject
 + (instancetype)createImpLementCallback:(void (^) (void))perform;
 - (void)callback;
+
 @end

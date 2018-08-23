@@ -10,8 +10,7 @@
 
 @interface UITextField (TYTextField)
 @property (nonatomic, copy) NSString *textFieldState;
-- (UITextField *)addTrigger:(BOOL (^) (id data))outputBlock;
-- (UITextField *)executionStatus;
+- (UITextField *)processingState:(BOOL (^) (id data))outputBlock;
 
 - (UITextField *)scope:(NSInteger)numerical;
 @end

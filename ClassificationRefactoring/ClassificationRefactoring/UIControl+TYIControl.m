@@ -10,24 +10,13 @@
 #import "TYImplementCallback.h"
 #import "TYLnternalLmplementation.h"
 #import <objc/runtime.h>
-typedef void (^controlBlock) (void);
 @interface UIControl()
-@property (nonatomic, copy) controlBlock controlNameBlock;
 @property (nonatomic, strong) TYImplementCallback *back;
 @property (nonatomic, strong) TYLnternalLmplementation *lnternal;
 @end
 @implementation UIControl (TYIControl)
-static void *controlNameBlockKey = &controlNameBlockKey;
 static void *backKey = &backKey;
 static void *lnternalKey = &lnternalKey;
-- (controlBlock)controlNameBlock{
-    return objc_getAssociatedObject(self, &controlNameBlockKey);
-}
-
-- (void)setControlNameBlock:(controlBlock)controlNameBlock {
-    objc_setAssociatedObject(self, &controlNameBlockKey, controlNameBlock, OBJC_ASSOCIATION_COPY);
-}
-
 - (TYImplementCallback *)back{
     return objc_getAssociatedObject(self, &backKey);
 }
@@ -57,24 +46,12 @@ static void *lnternalKey = &lnternalKey;
 }
 
 
-- (void)shuLuQualified:(BOOL (^) (id data))dataBlock style:(UIControlEvents)style {
+- (void)monitorStatus:(void (^) (id data))dataBlock style:(UIControlEvents)style {
     if (self.lnternal) {
         [self removeBack];
     }
-    self.lnternal = [TYLnternalLmplementation addLnternalLmplementation:dataBlock];
-    [self addTarget:self.lnternal action:@selector(perform:) forControlEvents:style];
+    self.lnternal = [TYLnternalLmplementation addDelivery:dataBlock];
+    [self addTarget:self.lnternal action:@selector(delivery:) forControlEvents:style];
 }
 
-- (void)textFieldState:(void (^) (BOOL state))perform{
-    if (self.lnternal != nil) {
-        self.lnternal.stateNameBlock = ^(BOOL state) {
-            perform(state);
-        };
-    }
-}
-
-
-- (void)passScope:(NSInteger)numerical {
-    [self.lnternal assignmentScope:numerical];
-}
 @end

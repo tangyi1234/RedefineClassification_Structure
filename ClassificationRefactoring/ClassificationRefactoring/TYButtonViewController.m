@@ -48,17 +48,16 @@
     textField1.backgroundColor = [UIColor greenColor];
     [self.view addSubview:textField1];
     
-    [[[textField addTrigger:^BOOL(id data) {
-        UITextField *text = data;
-        NSLog(@"输出文案:%@",text.text);
-        return text.text.length > 5;
-    }] executionStatus] scope:10];
     
-    [[textField1 addTrigger:^BOOL(id data) {
+    [[textField processingState:^BOOL(id data) {
         UITextField *text = data;
-        NSLog(@"输出文案1:%@",text.text);
-        return text.text.length > 8;
-    }] executionStatus];
+        return text.text.length > 5;
+    }] scope:10];
+    
+    [textField1 processingState:^BOOL(id data) {
+        UITextField *text = data;
+        return text.text.length > 10;
+    }];
     
     [[but storage].conditions(textField).conditions(textField1)
      buttonClickCallback:^{
